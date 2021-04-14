@@ -47,4 +47,14 @@ public class MyLinkedLists {
             this.tail = newNode;
         }
     }
+    public void insert(INode myNode , INode newNode) {
+        /* store the node in tempNode
+         * Initialize previous node to point new node
+         * make new node point to tempNode
+         */
+        INode tempNode = myNode.getNext();
+        myNode.setNext(newNode);
+        newNode.setNext(tempNode);
+
+    }
 }
