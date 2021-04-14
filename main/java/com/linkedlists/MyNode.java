@@ -1,10 +1,10 @@
 package com.linkedlists;
 
-public class MyNode<K> {
+public class MyNode<K> implements INode<K> {
 
     //Declaring key and next
     private K key;
-    private MyNode next;
+    private INode next;
 
 
     public MyNode(K key) {
@@ -12,12 +12,24 @@ public class MyNode<K> {
         this.next = null;
     }
 
+    @Override
+    public K getKey() {
+        return null;
+    }
+
+    @Override
+    public void setKey(K key) {
+        this.key = key;
+
+    }
+
     //getting the get and set functions
-    public MyNode getNext() {
+    public INode getNext() {
         return next;
     }
 
-    public void setNext(MyNode next) {
+    public void setNext(INode next) {
         this.next = next;
     }
+
 }

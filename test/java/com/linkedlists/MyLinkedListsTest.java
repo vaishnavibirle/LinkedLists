@@ -14,7 +14,28 @@ public class MyLinkedListsTest {
         myFirstNode.setNext(mySecondNode);
         mySecondNode.setNext(myThirdNode);
         boolean result = myFirstNode.getNext().equals(mySecondNode) &&
-                         mySecondNode.getNext().equals(myThirdNode);
+                mySecondNode.getNext().equals(myThirdNode);
         Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void given3NumbersWhenAddedToLinkedListShouldBeAddedToTop() {
+
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+
+        //create a linked list
+        MyLinkedLists myLinkedLists = new MyLinkedLists();
+        //adding nodes to linked list
+        myLinkedLists.add(myFirstNode);
+        myLinkedLists.add(mySecondNode);
+        myLinkedLists.add(myThirdNode);
+        /*for printing
+        myLinkedLists.printMyNodes();*/
+
+        boolean result = myLinkedLists.head.equals(myThirdNode) && myLinkedLists.head.getNext().equals(mySecondNode) && myLinkedLists.tail.equals(myFirstNode);
+        Assertions.assertTrue(result);
+
     }
 }
