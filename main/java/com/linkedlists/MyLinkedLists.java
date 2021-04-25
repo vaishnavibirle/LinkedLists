@@ -117,7 +117,37 @@ public class MyLinkedLists {
         }
         return size;
     }
-    public void printMyNodes() {
+
+    //create Ordered LinkedList
+    public static <K extends Comparable<K>> boolean maximum(K x, K y) {
+        K max = x;
+        if(y.compareTo(max) > 0)
+            return true;
+        else
+            return false;
+    }
+    public <K extends Comparable<K>> void sortList() {
+        INode<K> node1 = this.head;
+        INode<K> index = null;
+        K tempNode;
+        if(this.head == null)
+            return;
+        else {
+            while(node1 != null) {
+                index = node1.getNext();
+                while(index != null) {
+                    if(maximum(index.getKey(), node1.getKey())) {
+                        tempNode = node1.getKey();
+                        node1.setKey(index.getKey());
+                        index.setKey(tempNode);
+                    }
+                    index = index.getNext();
+                }
+                node1 = node1.getNext();
+            }
+        }
+    }
+    public void printMyNode() {
         System.out.println("My Nodes: " + head);
     }
 }
