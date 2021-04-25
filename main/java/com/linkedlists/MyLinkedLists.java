@@ -64,6 +64,14 @@ public class MyLinkedLists {
         return tempNode;
     }
 
+    //Search for a particular node
+    public  INode searchNode(INode keyNode) {
+        INode tempNode = this.head;
+        while (!tempNode.getNext().equals(keyNode)) {
+            tempNode = tempNode.getNext();
+        }
+        return keyNode;
+    }
     public void printMyNodes() {
         System.out.println("My Nodes: " + head);
     }
