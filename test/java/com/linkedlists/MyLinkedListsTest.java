@@ -87,4 +87,19 @@ public class MyLinkedListsTest {
         Assertions.assertEquals(true, result);
     }
 
+    //Deleting last element
+    @Test
+    public void given3Numbers_deleteLastElement() {
+        MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+        MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+        MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
+        MyLinkedLists myLinkedLists = new MyLinkedLists();
+        myLinkedLists.append(myFirstNode);
+        myLinkedLists.append(mySecondNode);
+        myLinkedLists.append(myThirdNode);
+        myLinkedLists.deleteLastElement();
+        INode result = myLinkedLists.deleteLastElement();
+        Assertions.assertEquals(mySecondNode, result);
+    }
+
 }

@@ -53,6 +53,17 @@ public class MyLinkedLists {
         return tempNode;
     }
 
+    //Deleting last element
+    public INode deleteLastElement() {
+        INode tempNode = this.head;
+        while (!tempNode.getNext().equals(tail)) {
+            tempNode = tempNode.getNext();
+        }
+        this.tail = tempNode;
+        tempNode = tempNode.getNext();
+        return tempNode;
+    }
+
     public void printMyNodes() {
         System.out.println("My Nodes: " + head);
     }
