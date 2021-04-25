@@ -4,7 +4,7 @@ public class MyNode<K> implements INode<K> {
 
     //Declaring key and next
     private K key;
-    private INode next;
+    private INode<K> next;
 
 
     public MyNode(K key) {
@@ -24,12 +24,22 @@ public class MyNode<K> implements INode<K> {
     }
 
     //getting the get and set functions
-    public INode getNext() {
+    public INode<K> getNext() {
         return next;
     }
 
-    public void setNext(INode next) {
+    public void setNext(INode<K> next) {
         this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder myNodeString = new StringBuilder();
+        myNodeString.append("My Nodes{" + "keys=")
+                .append(key).append('}');
+        if (next != null)
+            myNodeString.append("->").append(next);
+        return myNodeString.toString();
     }
 
 }

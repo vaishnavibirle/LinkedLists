@@ -68,6 +68,23 @@ public class MyLinkedListsTest {
         myLinkedLists.append(myThirdNode);
         myLinkedLists.insert(myFirstNode,myThirdNode);
 
+        boolean result = myLinkedLists.head.equals(myFirstNode) && myLinkedLists.head.equals(mySecondNode) && myLinkedLists.tail.equals(myThirdNode);
+        Assertions.assertTrue(result);
+
+    }
+    //UC5 Deleting First Element
+    @Test
+    public void given3Numbers_deleteFirstElement() {
+        MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+        MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+        MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
+        MyLinkedLists myLinkedLists = new MyLinkedLists();
+        myLinkedLists.append(myFirstNode);
+        myLinkedLists.append(mySecondNode);
+        myLinkedLists.append(myThirdNode);
+        myLinkedLists.deleteElement();
+        boolean result = myLinkedLists.head.equals(mySecondNode);
+        Assertions.assertEquals(true, result);
     }
 
 }
