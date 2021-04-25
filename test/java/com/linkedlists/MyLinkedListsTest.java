@@ -133,4 +133,21 @@ public class MyLinkedListsTest {
                 myLinkedLists.tail.equals(myFourthNode);
         Assertions.assertEquals(true, result);
     }
+
+    //Searching for a specific Node, deleting it and print list size
+    @Test
+    public void givenNumbers_searchAndDeleteSpecificNode_PrintListSize() {
+        MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+        MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+        MyNode<Integer> myThirdNode = new MyNode<Integer>(40);
+        MyNode<Integer> myFourthNode = new MyNode<Integer>(56);
+        MyLinkedLists myLinkedLists = new MyLinkedLists();
+        myLinkedLists.append(myFirstNode);
+        myLinkedLists.append(mySecondNode);
+        myLinkedLists.append(myThirdNode);
+        myLinkedLists.append(myFourthNode);
+        INode node = myLinkedLists.deleteNodeInBetween(myThirdNode);
+        int size = myLinkedLists.myListSize();
+        Assertions.assertEquals(3, size);
+    }
 }

@@ -84,6 +84,39 @@ public class MyLinkedLists {
         keyNode.setNext(newNode);
         newNode.setNext(newtempNode);
     }
+
+    //Delete a specific Node and show size of the list
+    public INode deleteNodeInBetween(INode keyNode) {
+        INode node1 = this.head;
+        INode tempNode = this.head;
+        while(tempNode != keyNode) {
+            tempNode = tempNode.getNext();
+        }
+        this.head = tempNode;
+        deleteElement();
+        INode node2 = this.head;
+        this.head = node1;
+        INode newtempNode = this.head;
+        while(newtempNode.getNext() != keyNode) {
+            newtempNode = newtempNode.getNext();
+        }
+        newtempNode.setNext(node2);
+        return this.head;
+    }
+
+    public int myListSize() {
+        int size = 0;
+        if(this.head == null)
+            return size;
+        else
+            size = 1;
+        INode tempNode = this.head;
+        while(tempNode.getNext() != null) {
+            tempNode = tempNode.getNext();
+            size++;
+        }
+        return size;
+    }
     public void printMyNodes() {
         System.out.println("My Nodes: " + head);
     }
