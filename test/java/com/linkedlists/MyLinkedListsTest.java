@@ -115,4 +115,22 @@ public class MyLinkedListsTest {
         Assertions.assertEquals(mySecondNode, result);
     }
 
+    //Searching for a specific Node and Inserting new node after that
+    @Test
+    public void givenNumbers_searchforSpecificNode_InsertNewElement() {
+        MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+        MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+        MyNode<Integer> myThirdNode = new MyNode<Integer>(40);
+        MyNode<Integer> myFourthNode = new MyNode<Integer>(56);
+        MyLinkedLists myLinkedLists = new MyLinkedLists();
+        myLinkedLists.append(myFirstNode);
+        myLinkedLists.append(mySecondNode);
+        myLinkedLists.append(myFourthNode);
+        myLinkedLists.searchNode(mySecondNode);
+        myLinkedLists.searchNodeAndInsert(mySecondNode, myThirdNode);
+        boolean result = myLinkedLists.head.equals(myFirstNode) && myLinkedLists.head.getNext().equals(mySecondNode)
+                && myLinkedLists.head.getNext().getNext().equals(myThirdNode) &&
+                myLinkedLists.tail.equals(myFourthNode);
+        Assertions.assertEquals(true, result);
+    }
 }

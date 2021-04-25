@@ -72,6 +72,18 @@ public class MyLinkedLists {
         }
         return keyNode;
     }
+
+    //Search for a Particular Node and Insert new Element after that
+    public void searchNodeAndInsert(INode keyNode, INode newNode)
+    {
+        INode tempNode = this.head;
+        while(!tempNode.getNext().equals(keyNode)) {
+            tempNode = tempNode.getNext();
+        }
+        INode newtempNode = keyNode.getNext();
+        keyNode.setNext(newNode);
+        newNode.setNext(newtempNode);
+    }
     public void printMyNodes() {
         System.out.println("My Nodes: " + head);
     }
